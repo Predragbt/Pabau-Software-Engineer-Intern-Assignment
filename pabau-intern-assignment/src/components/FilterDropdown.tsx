@@ -1,4 +1,5 @@
 import { Dropdown } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 interface FilterDropdownProps {
   label: string;
@@ -13,18 +14,23 @@ export const FilterDropdown = ({
   selected,
   onChange,
 }: FilterDropdownProps) => {
+  const { t } = useTranslation();
+
   return (
     <div>
-      <label>{label}</label>
+      <label>{t(label)}</label>
       <Dropdown>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
-          {selected || "Select an option"}
+          {t(selected.toLowerCase(), { defaultValue: selected }) || t(label)}
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
           {options.map((option) => (
-            <Dropdown.Item key={option} onClick={() => onChange(option)}>
-              {option}
+            <Dropdown.Item
+              key={option}
+              onClick={() => onChange(option)}
+            >
+              {t(option.toLowerCase(), { defaultValue: option })}
             </Dropdown.Item>
           ))}
         </Dropdown.Menu>
