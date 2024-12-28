@@ -158,7 +158,7 @@ export const Characters = () => {
 
   return (
     <div className="container">
-      <h1 className="mb-5">{t("characters")}</h1>
+      <h1 className="mt-4 mb-3 text-center">{t("characters")}</h1>
 
       <div className="filters d-flex justify-content-center mb-4 gap-4">
         <FilterDropdown

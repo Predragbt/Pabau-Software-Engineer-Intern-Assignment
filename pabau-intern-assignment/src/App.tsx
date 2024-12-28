@@ -1,12 +1,14 @@
+import { Outlet } from "react-router";
 import "./App.css";
-import { Characters } from "./components/Characters";
 import { Footer } from "./components/Footer";
-import "./i18n"; // Ensure this is correct
+import "./i18n";
+import { Header } from "./components/Heder";
 
 function App() {
   return (
     <>
-      <Characters />
+      <Header />
+      <Outlet />
       <Footer />
     </>
   );
