@@ -3,7 +3,7 @@ import App from "./App";
 import { Characters } from "./components/Characters";
 import { CharacterDetails } from "./components/CharacterDetails";
 import { GlobalError } from "./components/errorPages/GlobalError";
-import { NotFound } from "./components/errorPages/NotFound";
+import { NotFound } from "./components/errorPages/PageNotFound";
 
 export const router = createBrowserRouter([
   {

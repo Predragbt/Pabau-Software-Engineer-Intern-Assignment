@@ -1,97 +1,82 @@
 Rick and Morty Characters Explorer
 
-This project is a web application built with React that uses the Rick and Morty API to display, filter, and sort characters from the popular TV series. It also supports multilingual functionality (English and German) using react-i18next.
+This project is a React-based web application that utilizes the Rick and Morty GraphQL API to display, filter, and sort characters from the series. It supports English and German languages through react-i18next.
 
-Features
-Character Listing:
+Features:
 
-Displays all Rick and Morty characters in a card layout with details like name, status, species, gender, and origin.
-Cards are paginated with infinite scrolling.
-Filtering Options:
+*Character Listing
+- Displays character details (Name, Status, Species, Gender, Origin) in a card layout.
+- Infinite scrolling to load more characters seamlessly.
 
-Filter by Species: Choose from all available species of characters.
-Filter by Status: Filter characters by "Alive", "Dead", or "Unknown" statuses.
-Sorting Options:
+*Filtering & Sorting
+- Filters: Filter by species (dynamic) and status ("Alive", "Dead", "Unknown").
+- Sorting: Sort characters by Name or Origin in ascending order.
 
-Sort characters by Name or Origin in ascending order.
-Multilingual Support:
+*Multilingual Support
+- Supports English and German.
+- All text, filters, and labels are dynamically translated.
 
-Toggle between English and German using the language switcher in the footer.
-All UI text and filter options are translated dynamically.
-Dynamic API Queries:
+*Dynamic Character Details
+- View additional details of a character on a dedicated page, including type, location, origin, and dimension.
+- Error handling for invalid character IDs with a dedicated "Character Not Found" page.
 
-The app fetches data dynamically from the Rick and Morty GraphQL API based on user-selected filters.
-How It Works
-Homepage
-Displays characters as cards in a responsive grid layout.
-Each card includes:
-Name (localized if available).
-Status (Alive, Dead, Unknown).
-Species.
-Gender.
-Origin location.
-A placeholder button for potential future actions.
-Filters
-The filter dropdowns allow users to filter characters by species and status:
-Species: Populated dynamically from the API.
-Status: Predefined options ("Alive", "Dead", "Unknown").
-Filters are applied by querying the API with the selected filter values.
-A "Sort By" dropdown allows sorting by name or origin.
-Infinite Scrolling
-As you scroll, additional pages of characters are fetched from the API and appended to the list.
-This provides a seamless browsing experience without needing to click pagination buttons.
-Language Switcher
-Located in the footer, the language switcher allows users to switch between English and German.
-Upon switching, all UI elements, including filter dropdowns, status values, and labels, are updated to reflect the selected language.
-Code Structure
-Characters.tsx:
+How It Works:
 
-Main component responsible for fetching and displaying characters.
-Handles filters, sorting, infinite scrolling, and localization.
-FilterDropdown.tsx:
+*Homepage
+- Characters are fetched dynamically from the API and displayed in a responsive grid.
+- Filters and sorting options are available above the character grid.
 
-A reusable dropdown component for filters and sorting.
-Dynamically translates options and labels based on the selected language.
-Card.tsx:
+*Character Details
+- Access detailed information about a specific character by clicking on their card.
+- Handles invalid character IDs gracefully with an error page.
 
-A reusable card component for displaying character details.
-Supports localization for all displayed fields.
-Footer.tsx:
+*Filters & Language Switcher
+- Apply species and status filters, which dynamically fetch data from the API.
+- The language switcher in the footer allows users to toggle between English and German.
 
-Contains the language switcher.
-Allows users to toggle between supported languages (English and German).
-fetchAllSpecies.tsx:
+Code Structure:
 
-A utility function to fetch all species dynamically from the API.
-Localization Files (en.json and de.json):
+*Key Components
+- Characters.tsx: Main page for listing characters with filtering, sorting, and infinite scrolling.
+- CharacterDetails.tsx: Displays detailed information about a specific character.
+- FilterDropdown.tsx: Reusable dropdown for filters and sorting.
+- Footer.tsx: Contains the language switcher.
+*Error Pages:
+- NotFound.tsx: For invalid routes.
+- GlobalError.tsx: For unexpected global errors.
+- CharacterNotFound.tsx: For invalid character IDs.
 
-Define translations for UI labels and dynamic data (e.g., status and species names).
-Ensure all texts are translated into supported languages.
-Setup and Installation
-Prerequisites
-Node.js and npm installed on your machine.
-Installation
-Clone the repository:
-bash
-Copy code
-git clone https://github.com/your-repo/rick-and-morty-explorer.git
-cd rick-and-morty-explorer
-Install dependencies:
-bash
-Copy code
-npm install
-Run the Development Server
-bash
-Copy code
-npm start
-The application will be available at http://localhost:3000.
+*Utilities
+- FetchSpecies.tsx: Fetches all species across all API pages for filter options.
 
-API Integration
-The app fetches character data dynamically using the Rick and Morty GraphQL API.
-API Endpoint: https://rickandmortyapi.com/graphql.
-Queries Used:
-Get Characters: Fetches characters with optional filters (species and status) and pagination.
+*Localization
+- en.json and de.json: Localization files for English and German translations.
 
+Setup and Installation:
+
+*Prerequisites
+- Ensure Node.js and npm are installed.
+
+Installation:
+
+*Clone the repository:
+- git clone https://github.com/Predragbt/Pabau-Software-Engineer-Intern-Assignment.git
+- cd Pabau-Software-Engineer-Intern-Assignment/
+- cd pabau-intern-assignment/
+
+*Install dependencies:
+- npm install
+
+*Start the development server:
+- npm run dev
+
+API Integration:
+- The app dynamically fetches character data using the Rick and Morty GraphQL API.
+
+Queries Used
+
+*Get Characters:
+- Fetches paginated character data with optional filters.
 graphql
 Copy code
 query GetCharacters($page: Int, $filter: FilterCharacter) {
@@ -115,19 +100,25 @@ query GetCharacters($page: Int, $filter: FilterCharacter) {
     }
   }
 }
-Fetch All Species: Iteratively fetches species across all pages for the species filter dropdown.
 
-Languages Supported
-English (en.json): Default language.
-German (de.json): Toggle using the language switcher.
-Future Enhancements
-Add search functionality for character names.
-Include additional filters such as gender or location.
-Allow sorting in descending order.
-Add more languages for localization.
-Contact
-Feel free to reach out if you have questions or want to contribute:
+*Fetch All Species:
+- Iteratively fetches species for dynamic filtering options.
+
+*Supported Languages
+- English: Default language.
+- German: Toggle using the footer switcher.
+
+*Future Enhancements
+
+- Add search functionality for character names.
+- Enable sorting in descending order.
+- Include filters for gender and location.
+- Add additional languages.
+- Contact
+
+
+Feel free to reach out for questions or contributions:
 
 Email: predragbt@gmail.com
-GitHub: https://github.com/Predragbt
+GitHub: Predragbt
 Enjoy exploring the world of Rick and Morty! 🎉
